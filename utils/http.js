@@ -9,7 +9,7 @@ class HTTP {
   }
 
   _request(url, resolve, reject, data = {}, method = 'GET') {
-
+    
     wx.request({
       url: (url.startsWith("?") ? config.decrypt_base_url : config.api_base_url) + url,
       method: method,
@@ -23,7 +23,6 @@ class HTTP {
     })
 
   }
-
 
 }
 

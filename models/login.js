@@ -3,53 +3,92 @@ import {
 } from "../config.js"
 import {
   HTTP
-} from "../utils/util.js"
+} from "../utils/http.js"
 
 class LoginModel extends HTTP {
 
+  // 用户登录获取code
   login() {
 
     return new Promise((resolve, reject) => {
-      wx.login({
-        success: (res) => {
-          if (res.code) {
-            resolve(res.code)
+        wx.login({
+          success: (res) => {
+            if (res.code) {
+              resolve(res.code)
 
-          } else {
-            reject()
+            } else {
+              reject()
+            }
           }
-        }
+        })
+
+      })
+      .then(res => {
+        return this.decrypt(res)
       })
 
-    })
-    
-    
+
 
   }
 
+  // 用于对code进行解密，获取用户openid
   decrypt(code) {
     return this.request({
       url: `?appid=${config.appId}&secret=${config.appSecret}&js_code=${code}&grant_type=authorization_code`
     })
   }
 
+  // 获取用户信息，需要授权
   getUserInfo() {
 
-    wx.checkSession({
-      success() {
-        // session_key 未过期，并且在本生命周期一直有效
-      },
-      fail() {
-        // session_key 已经失效，需要重新执行登录流程
-        wx.login() // 重新登录
-      }
+    const promise = new Promise((resolve, reject) => {
+      wx.getUserInfo({
+        withCredentials:false,
+        success: res => resolve(res),
+        fail:res=>reject(res)
+      })
     })
+    return promise
 
-    wx.getUserInfo({
 
-    })
   }
 
+  // 用于需要使用openid的操作
+  opWithOpenid(callback) {
+
+    let openid = wx.getStorageSync("openid")
+    if (!openid) {
+
+      return new Promise((resolve, reject) => {
+        wx.login({
+          success: (res) => {
+            if (res.code) {
+              resolve(res.code)
+
+            } else {
+              reject()
+            }
+          }
+        })
+
+      })
+        .then(res => {
+          return this.decrypt(res)
+        })
+        .then(res=>{
+          wx.setStorageSync("openid", res.openid)
+          callback(res.openid)
+        })
+    }
+    else callback(openid)
+    
+
+
+
+  }
+
+  
+ 
 
 }
 
