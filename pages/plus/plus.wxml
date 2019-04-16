@@ -1,0 +1,13 @@
+<l-mask show="{{true}}" locked="{{true}}">
+  <view class="bar-container">
+    <view bindtap="onTapPublish" class="bar-item">
+      <text>发布</text>
+    </view>
+    <view bindtap="onTapAsk" class="bar-item">
+      <text>求购</text>
+    </view>
+    <view bindtap="onTapStore" class="bar-item">
+      <text>储物</text>
+    </view>
+  </view>
+</l-mask>

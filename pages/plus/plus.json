@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "l-mask":"/dist/mask/index"
+  }
+}

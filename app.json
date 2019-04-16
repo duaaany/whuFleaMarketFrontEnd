@@ -5,13 +5,14 @@
     "pages/plus/publish/publish",
     "pages/plus/ask/ask",
     "pages/plus/store/store",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/plus/plus"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+
+    "navigationBarTitleText": "小黑市",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "selectedColor": "#000000",
@@ -25,7 +26,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/plus/plus",
         "selectedIconPath": "/images/home/plus.png",
         "iconPath": "/images/home/plus.png",
         "text": "发布"

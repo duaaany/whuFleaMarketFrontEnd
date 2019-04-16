@@ -4,6 +4,7 @@ App({
   
   onLaunch(options) {
 
+    // TODO 用户退出小程序时清理本地openid的缓存，以便不同用户登录使用openid key-value
     // 检查用户是否已经在后台注册，若未注册则注册，已注册则不采取动作
     let openid = wx.getStorageSync("openid")
     if(!openid){
@@ -17,7 +18,7 @@ App({
           })
         })
     }
-    else{}
+    
 
     // 获取用户信息UserInfo
     // loginModel.getUserInfo()
