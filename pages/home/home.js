@@ -47,7 +47,8 @@ Page({
     this.setData({
       isCancelShown: true,
       isCategoryShown: false,
-      isContentShown: false
+      isContentShown: false,
+      isChoiceShown: false
     })
   },
 
