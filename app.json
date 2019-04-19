@@ -6,11 +6,11 @@
     "pages/plus/ask/ask",
     "pages/plus/store/store",
     "pages/test/test",
-    "pages/plus/plus"
+    "pages/plus/plus",
+    "pages/home/home-category/home-category"
   ],
   "window": {
     "backgroundTextStyle": "light",
-
     "navigationBarTitleText": "小黑市",
     "navigationBarTextStyle": "white"
   },
@@ -38,5 +38,6 @@
         "text": "我的"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -1,66 +1,72 @@
-// pages/home/home.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    isChoiceShown:false,
+    isCancelShown:false,
+    isCategoryShown:true,
+    isContentShown:true,
+    tabActiveKey: "deal"
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  onCategoryTap:function(){
+    this.setData({
+      isChoiceShown:!this.data.isChoiceShown,
+      isContentShown:!this.data.isContentShown
+    })
+  },
+
+  onChoiceListTap:function(event){
+    let categoryId = event.detail.categoryId
+    this.setData({
+      isContentShown: !this.data.isContentShown,
+      isChoiceShown: !this.data.isChoiceShown
+    })
+    wx.navigateTo({
+      url: `home-category/home-category?categoryId=${categoryId}`,
+      success:()=>{
+        
+      }
+    })
+
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onSearchConfirm:function(event){
+    let input = event.detail.detail.value
+    console.log(input)
+    this.setData({
+      isContentShown:false
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  onSearchFocus:function(event){
+    this.setData({
+      isCancelShown: true,
+      isCategoryShown: false,
+      isContentShown: false
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  onSearchCancel:function(event){
+    this.setData({
+      isCancelShown: false,
+      isCategoryShown: true,
+      isContentShown: true
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onTabChange:function(event){
+    let currentActiveKey = event.detail.activeKey
+    console.log(currentActiveKey)
+    this.setData({
+      tabActiveKey:currentActiveKey
+    })
+    console.log(this.data.tabActiveKey)
   }
+
+  
 })

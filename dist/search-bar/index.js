@@ -124,6 +124,11 @@ Component({
         value: ''
       })
       this.triggerEvent('linclear', event);
+    },
+
+    //用户自己定义的取消按钮响应函数
+    onCancel(event){
+      this.triggerEvent('hwwcancel', event);
     }
   }
 })

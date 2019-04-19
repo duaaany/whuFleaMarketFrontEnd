@@ -1,0 +1,15 @@
+<view class='list-container' bind:tap="onListTap">
+  <l-list title="全部" is-link="{{false}}" left-gap="45" data-categoryId='0' />
+  <l-list title="家电" is-link="{{false}}" left-gap="45" data-categoryId='1' />
+  <l-list title="植物" is-link="{{false}}" left-gap="45" data-categoryId='2' />
+  <l-list title="食品" is-link="{{false}}" left-gap="45" data-categoryId='3' />
+  <l-list title="专业书" is-link="{{false}}" left-gap="30" data-categoryId='4' />
+  <l-list title="电影票" is-link="{{false}}" left-gap="30" data-categoryId='5' />
+  <l-list title="化妆品" is-link="{{false}}" left-gap="30" data-categoryId='6' />
+  <l-list title="文学作品" is-link="{{false}}" left-gap="20" data-categoryId='7' />
+  <l-list title="宿舍神器" is-link="{{false}}" left-gap="20" data-categoryId='8' />
+  <l-list title="健身器材" is-link="{{false}}" left-gap="20" data-categoryId='9' />
+  <l-list title="体育用品" is-link="{{false}}" left-gap="20" data-categoryId='10' />
+  <l-list title="cosplay服装" is-link="{{false}}" left-gap="0" data-categoryId='11' />
+  <l-list title="其他" is-link="{{false}}" left-gap="45" data-categoryId='12'/>
+</view>
