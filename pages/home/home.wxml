@@ -1,0 +1,33 @@
+<view class='container'>
+
+  <view class='header-search'>
+    <l-search-bar placeholder="搜索" show-cancel="{{isCancelShown}}" bind:linconfirm="onSearchConfirm" bind:linfocus="onSearchFocus" bind:hwwcancel="onSearchCancel">
+      <h-category wx:if="{{isCategoryShown}}" bind:tap="onCategoryTap" />
+    </l-search-bar>
+    <h-choice wx:if="{{isChoiceShown}}" bind:choiceListTap="onChoiceListTap" />
+  </view>
+
+  <!-- 此处必须要使用wx:if而不能使用hidden，因为if每次都会重新渲染组件，会重新加载tabs的activeKey，从而保留点击分类按钮前tabs的activeKey状态 -->
+  <view wx:if="{{isContentShown}}">
+
+    <l-tabs bind:linchange="changeTabs" bind:linchange="onTabChange" l-class-line="tabLineClass" active-key="{{tabActiveKey}}">
+      <l-tabpanel tab="买卖" key="deal" slot="deal">
+        <view class="tab-content">
+          买卖页面
+        </view>
+      </l-tabpanel>
+      <l-tabpanel tab="共享" key="share" slot="share">
+        <view class="tab-content">
+          共享页面
+        </view>
+      </l-tabpanel>
+      <l-tabpanel tab="求购" key="ask" slot="ask">
+        <view class="tab-content">
+          求购页面
+        </view>
+      </l-tabpanel>
+    </l-tabs>
+
+  </view>
+
+</view>

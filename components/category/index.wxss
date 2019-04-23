@@ -1,0 +1,15 @@
+.head-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.head-container image{
+  width: 42rpx;
+  height: 22rpx;
+}
+
+.head-container text{
+  font-size: 25rpx;
+  position: relative;
+  right: 10rpx;
+}

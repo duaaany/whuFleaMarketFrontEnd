@@ -1,0 +1,4 @@
+.list-container{
+  width:160rpx;
+  border-right: solid 1px #eee;
+}

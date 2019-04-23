@@ -1,0 +1,6 @@
+.tabLineClass{
+  background:red !important;
+  width: 170rpx !important;
+}
+
+
